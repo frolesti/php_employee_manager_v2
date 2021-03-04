@@ -6,6 +6,7 @@ class Dashboard extends Controller{
         
         $url = 'models/employeeModel.php';
         require $url;
+        $this->view->message ='';
         $this->model = new EmployeeModel();
     }
 
@@ -17,6 +18,18 @@ class Dashboard extends Controller{
 
         $employees = $this->model->get();
         $this->view->employees = $employees;
-        $this->view->render('dashboard/index');
+        $this->render();
+    }
+
+    function deleteEmployee($param){
+
+        if($this->model->delete($param[0])){
+            $message = "Employee deleted!";
+        }else {
+            $message = "Employee couldn't be deleted!";
+        }
+
+        $this->view->message = $message;
+        header('Location: '. URL .'dashboard/getEmployee');
     }
 }

@@ -1,25 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
-<body>
-
     <?php require 'views/header.php'?>
-    <div>
-        <h1>Dashboard</h1>
-        <?php 
-        foreach($this->employees as $employee){
-            var_dump($employee);
-            echo '<a href="' . constant('URL').'employee/viewEmployee/' . $employee['id'] . '">Editar</a>  ';
-
-            echo '<a href="' . constant('URL').'employee/deleteEmployee/' . $employee['id'] . '">Eliminar</a><br>';
-        }
-        ?>
-    </div>
+    <table>
+        <theader>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Last Name</td>
+                <td>Email</td>
+                <td>Gender</td>
+                <td>City</td>
+                <td>Street Address</td>
+                <td>State</td>
+                <td>Age</td>
+                <td>Postal Code</td>
+                <td>Phone Number</td>
+        </theader>
+        <tbody>
+            <?php foreach($this->employees as $employee){
+                echo '<tr><td>'. $employee['emp_no'] . '</td>
+                <td>'. $employee['employee_name'] . '</td>
+                <td>'. $employee['employee_last_name'] . '</td>
+                <td>'. $employee['employee_email'] . '</td>
+                <td>'. $employee['employee_gender'] . '</td>
+                <td>'. $employee['employee_city'] . '</td>
+                <td>'. $employee['employee_street_address'] . '</td>
+                <td>'. $employee['employee_state'] . '</td>
+                <td>'. $employee['employee_age'] . '</td>
+                <td>'. $employee['employee_postal_code'] . '</td>
+                <td>'. $employee['employee_phone_number'] . '</td>
+                <td><a href="' . URL . 'employee/viewEmployee/' . $employee['emp_no'] . '"><i class="fas fa-marker"></i></a></td>
+                <td><a href="' . URL . 'dashboard/deleteEmployee/' . $employee['emp_no'] . '"><i class="fas fa-trash"></i></a></td></tr>';
+            }?>
+        </tbody>
+    </table>
     <?php require 'views/footer.php'?>
-</body>
-</html>

@@ -7,7 +7,6 @@ class Employee extends Controller{
         $url = 'models/employeeModel.php';
         require $url;
         $this->view->message ='';
-        $this->view->employees = [];
         $this->model = new EmployeeModel();
     }
 
@@ -18,6 +17,7 @@ class Employee extends Controller{
     function insertEmployee(){
 
         unset($_POST["submit"]);
+        unset($_POST['emp_no']);
         $message ='';
 
         if($this->model->insert($_POST)){
@@ -33,14 +33,21 @@ class Employee extends Controller{
     function viewEmployee($param = null){
         $employee = $this->model->getById($param[0]);
         $this->view->employee = $employee;
-        $this->view->render('employee/index');
+        $this->render();
     }
 
     function updateEmployee(){
 
-    }
+        unset($_POST["submit"]);
+        $message ='';
 
-    function deleteEmployee(){
+        if($this->model->update($_POST)){
+            $message = "Employee updated!";
+        }else {
+            $message = "Employee couldn't be updated!";
+        }
 
+        $this->view->message = $message;
+        $this->render();
     }
 }

@@ -22,6 +22,7 @@ class App{
         }
         
         $fileController = 'controllers/' . $url[0] . '.php';
+        //print_r($fileController);
 
         if(file_exists($fileController)){
             require_once $fileController;
@@ -37,7 +38,10 @@ class App{
                     for ($i=2; $i < $nparam; $i++){
                         array_push($param, $url[$i]);
                     }
-                    $controller->{$url[1]}($param);
+                    if($url[1] != "public"){
+                        $controller->{$url[1]}($param);
+                    }
+                    
                 }else {
                     $controller->{$url[1]}();
                 }
