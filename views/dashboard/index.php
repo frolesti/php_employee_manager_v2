@@ -1,5 +1,5 @@
     <?php require 'views/header.php'?>
-    <table>
+    <table class="table">
         <theader>
                 <td>ID</td>
                 <td>Name</td>
@@ -12,6 +12,8 @@
                 <td>Age</td>
                 <td>Postal Code</td>
                 <td>Phone Number</td>
+                <td>Edit</td>
+                <td>Delete</td>
         </theader>
         <tbody>
             <?php foreach($this->employees as $employee){

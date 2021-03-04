@@ -60,7 +60,7 @@ button{
 .header_container{
     margin: auto;
     /* border: 1px solid red; */
-    width: 80%;
+    width: 100%;
     height: 3em;
 
     display: flex;
@@ -266,4 +266,9 @@ thead{
 .delete_btn:focus{
     width: 28px;
     height: 28px;
+}
+
+.table {
+    width: 80%;
+    margin: 30px auto;
 }
