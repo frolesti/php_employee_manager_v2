@@ -7,4 +7,8 @@ class Controller{
         //echo 'Controlador base';
         $this->view = new View();
     }
+
+    function checkSession(){
+        
+    }
 }

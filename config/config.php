@@ -1,6 +1,6 @@
 <?php
 
-define('URL', 'http://localhost/php-employee-management-v3/');
+define('URL', 'http://localhost/php_employee_manager_v3/');
 
 define('HOST', 'localhost');
 define('DB', 'employee_management');
